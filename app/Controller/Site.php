@@ -21,7 +21,7 @@ working']);
     {
         if ($request->method === 'POST' && User::create($request->all()))
         {
-            app()->route->redirect('/go');
+            app()->route->redirect('/login');
         }
         return new View('site.signup');
 

@@ -38,7 +38,7 @@ class View
         $path = $this->getPathToView($view);
         if (file_exists($this->getPathToMain()) &&
             file_exists($path)) {
-//Импортирует переменные из массива в текущую таблиц символов
+//Импортирует переменные из массива в текущую таблицу символов
 extract($data, EXTR_PREFIX_SAME, '');
 //Включение буферизации вывода
 ob_start();

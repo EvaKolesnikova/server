@@ -1,6 +1,21 @@
 {
+    "name": "evakolesnikova/server",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "evakolesnikova",
+            "email": "evakoless@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
     "require": {
-        "illuminate/database": "^10.49",
-        "illuminate/events": "^10.49"
+        "php": "^7.4 | ^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\": "core/Src/",
+            "": "app/"
+        }
     }
 }

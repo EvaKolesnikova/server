@@ -8,6 +8,5 @@ return [
     'routeMiddleware' => [
         'auth' => Middlewares\AuthMiddleware::class,
         'role' => Middlewares\RoleMiddleware::class,
-        'admin' => Middlewares\AdminMiddleware::class,
     ],
 ];

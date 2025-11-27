@@ -2,32 +2,20 @@
 
 namespace Middlewares;
 
-use Src\Request;
 use Src\Auth\Auth;
+use Src\Request;
 
 class RoleMiddleware
 {
-    protected array $roles;
-
-    public function __construct(...$roles)
+    public function handle(Request $request, string $roles): void
     {
-        $this->roles = $roles;
-    }
+        $allowedRoles = explode(',', $roles);
+        $user = app()->auth::user();
 
-    public function handle(Request $request): bool
-    {
-        $user = Auth::user();
-
-        if (!$user) {
-            header('Location: /login');
-            exit;
-        }
-
-        if (!in_array($user->role, $this->roles)) {
+        if (!in_array($user->role, $allowedRoles)) {
+            http_response_code(403);
             echo 'Доступ запрещён';
-            exit;
+            exit();
         }
-
-        return true;
     }
 }

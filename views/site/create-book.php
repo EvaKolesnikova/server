@@ -1,25 +1,33 @@
 <?php if (!empty($message)): ?>
-    <p style="color:green;"><?= $message ?></p>
+    <p class="message success"><?= htmlspecialchars($message) ?></p>
 <?php endif; ?>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data" class="book-form">
     <h2>Добавить книгу</h2>
-    <label>Название:</label><br>
-    <input type="text" name="title" required><br><br>
 
-    <label>Автор:</label><br>
-    <input type="text" name="author" required><br><br>
+    <label>Название:</label>
+    <input type="text" name="title" required>
 
-    <label>Год издания:</label><br>
-    <input type="number" name="published_year" required><br><br>
+    <label>Автор:</label>
+    <input type="text" name="author" required>
 
-    <label>Цена:</label><br>
-    <input type="number" step="0.01" name="price" required><br><br>
+    <label>Год издания:</label>
+    <input type="number" name="published_year" required>
 
-    <label><input type="checkbox" name="is_new_edition"> Новое издание</label><br><br>
+    <label>Цена:</label>
+    <input type="number" step="0.01" name="price" required>
 
-    <label>Аннотация:</label><br>
-    <textarea name="description" rows="4" cols="50"></textarea><br><br>
+    <label><input type="checkbox" name="is_new_edition"> Новое издание</label>
 
-    <button type="submit">Добавить книгу</button>
+    <label>Аннотация:</label>
+    <textarea name="description" rows="4"></textarea>
+
+    <label>Обложка книги:</label>
+    <input type="file" name="cover_file" accept="image/*">
+
+    <div class="preview">
+        <img id="coverPreview" src="" alt="Превью обложки" style="display:none;">
+    </div>
+
+    <button type="submit">ДОБАВИТЬ КНИГУ</button>
 </form>

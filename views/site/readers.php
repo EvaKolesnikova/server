@@ -5,8 +5,9 @@
         <p class="empty-msg">Читателей пока нет.</p>
     <?php else: ?>
         <div class="actions">
-            <button class="btn">Добавить читателя</button>
-            <button class="btn">Удалить читателя</button>
+            <a href="<?= app()->route->getUrl('/create-reader') ?>" class="btn">
+                Добавить читателя
+            </a>
         </div>
 
         <table class="readers-table">
@@ -17,7 +18,6 @@
                 <th>Номер читательского билета</th>
                 <th>Номер телефона</th>
                 <th>Адрес</th>
-                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -28,7 +28,6 @@
                     <td><?= htmlspecialchars($reader->card_number) ?></td>
                     <td><?= htmlspecialchars($reader->phone_number) ?></td>
                     <td><?= htmlspecialchars($reader->address) ?></td>
-                    <td class="checkbox-cell"><input type="checkbox"></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>

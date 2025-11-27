@@ -5,6 +5,9 @@
 
     <?php if (!app()->auth::check()): ?>
         <form method="post">
+            <?php if (!empty($errors['login'])): ?>
+                <p class="error"><?= implode(', ', $errors['login']) ?></p>
+            <?php endif; ?>
             <label>Логин
                 <input type="text" name="login">
             </label>

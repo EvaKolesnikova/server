@@ -1,27 +1,27 @@
-<h2>Выдача книги читателю</h2>
+<h2 class="page-title">Выдача книги читателю</h2>
 
 <?php if (!empty($message)): ?>
-    <p style="color: green;"><?= htmlspecialchars($message) ?></p>
+    <p class="success-message"><?= htmlspecialchars($message) ?></p>
 <?php endif; ?>
 
-<form method="POST" action="">
+<form method="POST" action="" class="issue-form">
     <label>Книга:
-        <select name="book_id">
+        <select name="book_id" required>
             <option value="">Выберите книгу</option>
             <?php foreach ($books as $book): ?>
                 <option value="<?= $book->id ?>"><?= htmlspecialchars($book->title) ?></option>
             <?php endforeach; ?>
         </select>
     </label>
-    <br><br>
+
     <label>Читатель:
-        <select name="reader_id">
+        <select name="reader_id" required>
             <option value="">Выберите читателя</option>
             <?php foreach ($readers as $reader): ?>
                 <option value="<?= $reader->id ?>"><?= htmlspecialchars($reader->full_name) ?></option>
             <?php endforeach; ?>
         </select>
     </label>
-    <br><br>
+
     <button type="submit">Выдать книгу</button>
 </form>

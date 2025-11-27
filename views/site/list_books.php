@@ -11,7 +11,9 @@
         <div class="books-grid">
             <?php foreach ($books as $book): ?>
                 <div class="book-card">
-                    <img src="<?= htmlspecialchars($book->cover_url ?? 'placeholder.jpg') ?>" alt="Обложка">
+                    <div class="book-cover">
+                        <img src="<?= htmlspecialchars('/upractic' . ($book->cover_url ?? '/public/img/placeholder.jpg')) ?>" alt="Обложка">
+                    </div>
                     <div class="book-info">
                         <h3 class="book-title">“<?= htmlspecialchars($book->title) ?>”</h3>
                         <p class="book-author">Автор: <?= htmlspecialchars($book->author) ?></p>

@@ -3,24 +3,39 @@
 <?php endif; ?>
 
 <form method="POST" enctype="multipart/form-data" class="book-form">
+    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
     <h2>Добавить книгу</h2>
 
     <label>Название:</label>
-    <input type="text" name="title" required>
+    <?php if (!empty($errors['title'])): ?>
+        <div class="field-error"><?= htmlspecialchars($errors['title'][0]) ?></div>
+    <?php endif; ?>
+    <input type="text" name="title" value="<?= htmlspecialchars($old['title'] ?? '') ?>">
+
 
     <label>Автор:</label>
-    <input type="text" name="author" required>
+    <?php if (!empty($errors['author'])): ?>
+        <div class="field-error"><?= htmlspecialchars($errors['author'][0]) ?></div>
+    <?php endif; ?>
+    <input type="text" name="author" value="<?= htmlspecialchars($old['author'] ?? '') ?>">
 
     <label>Год издания:</label>
-    <input type="number" name="published_year" required>
+    <?php if (!empty($errors['published_year'])): ?>
+        <div class="field-error"><?= htmlspecialchars($errors['published_year'][0]) ?></div>
+    <?php endif; ?>
+    <input type="number" name="published_year" value="<?= htmlspecialchars($old['published_year'] ?? '') ?>">
+
 
     <label>Цена:</label>
-    <input type="number" step="0.01" name="price" required>
+    <?php if (!empty($errors['price'])): ?>
+        <div class="field-error"><?= htmlspecialchars($errors['price'][0]) ?></div>
+    <?php endif; ?>
+    <input type="number" step="0.01" name="price" value="<?= htmlspecialchars($old['price'] ?? '') ?>">
 
-    <label><input type="checkbox" name="is_new_edition"> Новое издание</label>
+    <label><input type="checkbox" name="is_new_edition" <?= isset($old['is_new_edition']) ? 'checked' : '' ?>> Новое издание</label>
 
     <label>Аннотация:</label>
-    <textarea name="description" rows="4"></textarea>
+    <textarea name="description" rows="4"><?= htmlspecialchars($old['description'] ?? '') ?></textarea>
 
     <label>Обложка книги:</label>
     <input type="file" name="cover_file" accept="image/*">

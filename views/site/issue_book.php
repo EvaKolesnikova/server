@@ -5,6 +5,7 @@
 <?php endif; ?>
 
 <form method="POST" action="" class="issue-form">
+    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
     <label>Книга:
         <select name="book_id" required>
             <option value="">Выберите книгу</option>

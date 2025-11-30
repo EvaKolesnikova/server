@@ -9,4 +9,11 @@ return [
         'auth' => Middlewares\AuthMiddleware::class,
         'role' => Middlewares\RoleMiddleware::class,
     ],
+
+    'routeAppMiddleware' => [
+        'trim' => \Middlewares\TrimMiddleware::class,
+        'csrf' => \Middlewares\CSRFMiddleware::class,
+        'specialChars' => \Middlewares\SpecialCharsMiddleware::class,
+        'json' => \Middlewares\JSONMiddleware::class,
+    ],
 ];

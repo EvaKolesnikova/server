@@ -2,7 +2,7 @@
     <h2 class="page-title">Список библиотекарей</h2>
 
     <div class="actions">
-        <button class="btn">Добавить библиотекаря</button>
+        <a href="<?= app()->route->getUrl('/create-librarian') ?>" class="btn">Добавить библиотекаря</a>
     </div>
 
     <?php if ($librarians->isEmpty()): ?>

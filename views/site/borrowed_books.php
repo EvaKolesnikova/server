@@ -1,6 +1,6 @@
 <h2>Выданные книги</h2>
 
-<form method="GET" action="/practic/borrowed-books">
+<form method="GET" action="/upractic/borrowed-books">
     <label>Выберите читателя:
         <select name="reader_id">
             <option value="">Все читатели</option>

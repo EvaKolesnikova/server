@@ -1,6 +1,6 @@
 <h2>Читатели, брали книгу</h2>
 
-<form method="GET" action="/practic/borrowers-by-book">
+<form method="GET" action="/upractic/borrowers-by-book">
     <label>Выберите книгу:
         <select name="book_id">
             <option value="">Выберите книгу</option>

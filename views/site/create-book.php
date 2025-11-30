@@ -23,14 +23,14 @@
     <?php if (!empty($errors['published_year'])): ?>
         <div class="field-error"><?= htmlspecialchars($errors['published_year'][0]) ?></div>
     <?php endif; ?>
-    <input type="number" name="published_year" value="<?= htmlspecialchars($old['published_year'] ?? '') ?>">
+    <input type="number" name="published_year" min="0" value="<?= htmlspecialchars($old['published_year'] ?? '') ?>">
 
 
     <label>Цена:</label>
     <?php if (!empty($errors['price'])): ?>
         <div class="field-error"><?= htmlspecialchars($errors['price'][0]) ?></div>
     <?php endif; ?>
-    <input type="number" step="0.01" name="price" value="<?= htmlspecialchars($old['price'] ?? '') ?>">
+    <input type="number" step="0.01" name="price" min="0" value="<?= htmlspecialchars($old['price'] ?? '') ?>">
 
     <label><input type="checkbox" name="is_new_edition" <?= isset($old['is_new_edition']) ? 'checked' : '' ?>> Новое издание</label>
 

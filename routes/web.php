@@ -60,7 +60,7 @@ Route::add('GET', '/return-book', [Controller\BookController::class, 'returnList
 Route::add('POST', '/return-book', [Controller\BookController::class, 'return'])
     ->middleware('role:librarian,admin');
 
-Route::add(['GET', 'POST'], '/borrowed-books', [Controller\BookController::class, 'borrowed'])
+Route::add(['GET', 'POST'], '/borrowed-books', [Controller\BookController::class, 'list'])
     ->middleware('role:librarian,admin');
 
 
